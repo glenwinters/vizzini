@@ -1,6 +1,8 @@
 # Vizzini
 
-Vizzini is a Skype bot that runs on AWS API Gateway and Lambda.
+Vizzini is a Skype bot.
+
+It's built using [Claudia Bot Builder](https://github.com/claudiajs/claudia-bot-builder) which allows you to quickly deploy a bot to many different services (e.g. Skype, Slack, Facebook Messenger) on AWS API Gateway and Lambda. This app only has Skype enabled.
 
 ## Installation
 
