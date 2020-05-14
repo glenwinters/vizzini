@@ -21,26 +21,20 @@ It's built using [Claudia Bot Builder](https://github.com/claudiajs/claudia-bot-
    npm install
    ```
 
-1. Create the bot API in your AWS account with `claudia`. You can change the region if you like. This command will create the API Gateway and Lambda in your default AWS account (set `AWS_PROFILE` to specify a different account). Resources
+1. Create the bot API in your AWS account (defaults to `us-east-1`). This command will create the API Gateway and Lambda in your default AWS account (set `AWS_PROFILE` to specify a different account). This command will prompt you for your Microsoft App ID and secret, which can be found in the Web App Bot settings in Azure.
 
    ```bash
-   claudia create --region us-east-1 --api-module bot
+   npm run create
    ```
 
 1. Grab the Skype URL at the bottom of the `create` command's output, and set that as the `messaging endpoint` in your Web App Bot settings in Azure.
-
-1. Update the Skype settings for authentication. This command will prompt you for your Microsoft App ID and secret, which can be found in the Web App Bot settings in Azure.
-
-   ```bash
-   claudia update --configure-skype-bot
-   ```
 
 ## Development
 
 #### Push an update
 
 ```bash
-claudia update
+npm run update
 ```
 
 ## Infrastructure
