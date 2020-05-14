@@ -1,0 +1,19 @@
+{
+  "name": "vizzini-lambda",
+  "version": "0.1.0",
+  "description": "Skype bot run on Lambda",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create": "claudia create --region us-east-1 --api-module bot --configure-skype-bot",
+    "update": "claudia update --cache-api-config claudiaConfigCache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glenwinters/vizzini-lambda.git"
+  },
+  "author": "Glen Winters <glenwinters@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "claudia-bot-builder": "^4.5.0"
+  }
+}
