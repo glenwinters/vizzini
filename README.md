@@ -9,6 +9,8 @@ Commands:
 * `/recipe` displays a random recipe pulled from spoonacular.com.
 * `/science <text>` converts "some text" to "S.O.M.E. T.E.X.T.". Don't ask...
 
+Due to Skype having its own slash commands, you need to put a space before the
+slash if talking to the bot directly.
 
 ## History
 
