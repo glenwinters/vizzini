@@ -16,7 +16,8 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.19.2",
-    "claudia-bot-builder": "^4.5.0"
+    "claudia-bot-builder": "^4.5.0",
+    "lodash": "^4.17.20"
   },
   "devDependencies": {
     "eslint": "^6.8.0",

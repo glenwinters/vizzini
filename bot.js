@@ -66,7 +66,7 @@ const getRecipe = () => {
    .then(response => {
     // The response has 3 meals (breakfast, lunch and dinner) and this randomly
     // picks lunch or dinner.
-    const recipe = response.data.meals[1 + randomInt(1)];
+    const recipe = response.data.meals[1 + _.random(1)];
     const {id: recipeID, imageType, sourceUrl, title} = recipe;
     const recipeImageUrl = `https://spoonacular.com/recipeImages/${recipeID}-312x150.${imageType}`;
      return new skypeTemplate.Carousel('summary')
