@@ -49,7 +49,7 @@ const recipeResponse = {
   },
 };
 
-const { SPOONACULAR_API_KEY } = process.env;
+const { SPOONACULAR_API_KEY, RAPID_API_KEY } = process.env;
 
 const toSCIENCE = (message) => {
   return message
@@ -85,8 +85,43 @@ const getRecipe = () => {
     .catch((error) => error.message);
 };
 
+const getWattsPhoto = (wattage) => {
+  const isInputValid = /^\d+W$/.test(wattage);
+  if (!isInputValid) {
+    return Promise.resolve('Bad input. Example: 850W');
+  }
+
+  const requestOptions = {
+    method: 'GET',
+    url:
+      'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/ImageSearchAPI',
+    params: {
+      q: wattage,
+      pageNumber: '1',
+      pageSize: '1',
+      autoCorrect: 'false',
+      safeSearch: 'true',
+    },
+    headers: {
+      'x-rapidapi-key': RAPID_API_KEY,
+      'x-rapidapi-host': 'contextualwebsearch-websearch-v1.p.rapidapi.com',
+    },
+  };
+
+  return axios
+    .request(requestOptions)
+    .then((response) => {
+      const image = response.data.value[0].url;
+      return new skypeTemplate.Carousel('summary')
+        .addHero([image])
+        .addTitle(wattage)
+        .get();
+    })
+    .catch((error) => error.message);
+};
+
 const help = () => {
-  const commands = ['/science'];
+  const commands = ['/science', '/recipe', '/watts'];
   const response = 'Commands:\r\n';
   return response + commands.join('\r\n');
 };
@@ -106,6 +141,8 @@ const requestHandler = (message) => {
       return getRecipe();
     case '/science':
       return toSCIENCE(commandArgs);
+    case '/watts':
+      return getWattsPhoto(commandArgs);
     case '/help':
       return help();
     default:
