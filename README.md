@@ -55,6 +55,29 @@ This uses the `claudia` cli to deploy a new version of the Lambda function and, 
 npm run update
 ```
 
+If you don't have the `claudia.json` previously created by `npm run create`, then create it with the following template:
+```
+{
+  "lambda": {
+    "role": "PACKAGE_NAME-executor",
+    "name": "PACKAGE_NAME",
+    "region": "us-east-1"
+  },
+  "api": {
+    "id": "API_GATEWAY_ID",
+    "module": "bot",
+    "url": "https://API_GATEWAY_ID.execute-api.us-east-1.amazonaws.com/latest",
+    "deploy": {
+      "skype": "https://API_GATEWAY_ID.execute-api.us-east-1.amazonaws.com/latest/skype"
+    }
+  }
+}
+```
+
+Variables:
+* PACKAGE_NAME is the name of this package in package.json
+* API_GATEWAY_ID is the ID of the existing [API Gateway](https://us-east-1.console.aws.amazon.com/apigateway/main/apis?region=us-east-1)
+
 ## Infrastructure
 
 This app uses Claudia to easily deploy Node.js to AWS Lambda and API Gateway.
