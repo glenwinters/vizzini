@@ -15,9 +15,9 @@
   "author": "Glen Winters <glenwinters@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.27.2",
     "claudia-bot-builder": "^4.5.0",
-    "lodash": "^4.17.20"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "claudia": "^5.14.1",
