@@ -20,6 +20,7 @@
     "lodash": "^4.17.20"
   },
   "devDependencies": {
+    "claudia": "^5.14.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.12.0",
